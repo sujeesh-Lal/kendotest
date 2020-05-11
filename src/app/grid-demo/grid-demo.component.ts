@@ -53,7 +53,7 @@ export class GridDemoComponent implements OnInit {
         this.state = state;
       }),
       switchMap((state) => {
-        return this.dService.fetch(state);
+        return this.dService.getBulkData(state);
       }),
       tap((data: any) => {
       }),

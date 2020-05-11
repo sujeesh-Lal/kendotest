@@ -33,13 +33,13 @@
     </ng-template>
   </kendo-grid-column>
   <kendo-grid-column
-    field="ProductID"
+    field="AO"
     [width]="80"
     title="ProductID"
   ></kendo-grid-column>
-  <kendo-grid-column field="ProductName" title="ProductName" [width]="200">
+  <kendo-grid-column field="A" title="ProductName" [width]="200">
     <ng-template kendoGridCellTemplate let-dataItem>
-      {{ dataItem.ProductName }}
+      {{ dataItem.A }}
     </ng-template>
     <ng-template
       kendoGridEditTemplate
@@ -49,17 +49,18 @@
       let-isNew="isNew"
     >
       <app-custominput
-        [(ngModel)]="dataItem.ProductName"
+        [(ngModel)]="dataItem.A"
         name="ProductName"
         [formControl]="formGroup.get('ProductName')"
       ></app-custominput>
     </ng-template>
   </kendo-grid-column>
-  <kendo-grid-column field="CategoryID" title="CatagoryName" [width]="100">
+  <kendo-grid-column field="B" title="CatagoryName" [width]="100">
     <ng-template kendoGridCellTemplate let-dataItem>
-      {{ category(dataItem.CategoryID)?.CategoryName }}
+      <!-- {{ category(dataItem.CategoryID)?.CategoryName }} -->
+      {{ dataItem.B }}
     </ng-template>
-    <ng-template
+    <!-- <ng-template
       kendoGridEditTemplate
       let-dataItem="dataItem"
       let-column="column"
@@ -88,7 +89,7 @@
         <span class="k-icon k-i-warning"></span>
         Category is required
       </kendo-popup>
-    </ng-template>
+    </ng-template> -->
   </kendo-grid-column>
   <kendo-grid-command-column title="command" width="220">
     <ng-template kendoGridCellTemplate let-isNew="isNew">

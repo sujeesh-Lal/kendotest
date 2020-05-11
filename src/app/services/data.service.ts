@@ -41,4 +41,42 @@ export class DataService {
                 tap(() => this.loading = false)
             );
     }
+
+    getBulkData(state: any) {
+
+        const queryStr = `${state.skip}/${state.take}/true`;
+        this.loading = true;
+
+        return this.http
+            .get(`http://localhost:4200/assets/huge.data.json`)
+            .pipe(
+                map((response: any) => {
+
+                    const result: any = {
+                        total: parseInt(response.length, 10)
+                    };
+                    const chunk = response.slice(state.skip, state.skip + state.take);
+                    result.data = chunk;
+
+
+                    return result;
+                }),
+                tap(() => this.loading = false)
+            );
+
+
+        // return this.http.get<any>('http://localhost:4200/assets/huge.data.json')
+        //     .toPromise()
+        //     .then((res) => {
+        //         return res as any[];
+        //     })
+        //     .then((data) => {
+        //         const result: any = {
+        //             totalRecords: data.length
+        //         };
+        //         const chunk = data.slice(first, first + rows);
+        //         result.data = chunk;
+        //         return result;
+        //     });
+    }
 }
