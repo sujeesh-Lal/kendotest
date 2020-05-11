@@ -1,0 +1,32 @@
+<div class="search-bar-container">
+  <div class="search-box-container">
+    <div class="search-input-box-container">
+      <i *ngIf="showSearchIcon" class="search-box-icon {{ searchIcon }}"></i>
+      <input
+        #searchInputEl
+        [(ngModel)]="searchValueEntered"
+        class="search-box"
+        [maxLength]="maxLength"
+        type="tel"
+        [placeholder]="inputPlaceholder"
+        (ngModelChange)="dataChanged($event)"
+        (blur)="onBlurMethod()"
+        (keyup.enter)="emitSearchValue()"
+      />
+    </div>
+    <button
+      *ngIf="showSearchButton"
+      class="search-btn"
+      (click)="emitSearchValue()"
+    >
+      {{ searchBtnText }}
+    </button>
+  </div>
+  <p
+    *ngIf="shouldShowErrorMsg"
+    class="search-bar-error-text"
+    [style.visibility]="showErrorMsg ? 'visible' : 'hidden'"
+  >
+    {{ errorText }}
+  </p>
+</div>

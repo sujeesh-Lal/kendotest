@@ -1,0 +1,171 @@
+{
+    "id": 7252,
+    "name": "FENCHURCH ST",
+    "storeType": "mands",
+    "coordinates": {
+        "latitude": 51.51193,
+        "longitude": -0.0848
+    },
+    "coreOpeningHours": [
+        {
+            "day": "Monday",
+            "open": "07:00",
+            "close": "20:00"
+        },
+        {
+            "day": "Tuesday",
+            "open": "07:00",
+            "close": "20:00"
+        },
+        {
+            "day": "Wednesday",
+            "open": "07:00",
+            "close": "20:00"
+        },
+        {
+            "day": "Thursday",
+            "open": "07:00",
+            "close": "20:00"
+        },
+        {
+            "day": "Friday",
+            "open": "07:00",
+            "close": "20:00"
+        },
+        {
+            "day": "Saturday",
+            "open": "00:00",
+            "close": "00:00"
+        },
+        {
+            "day": "Sunday",
+            "open": "00:00",
+            "close": "00:00"
+        }
+    ],
+    "specialOpeningHours": [
+        {
+            "name": "Boxing Day",
+            "open": "2015-12-26T00:00:00Z",
+            "close": "2015-12-26T00:00:00Z",
+            "state": "closed"
+        }
+    ],
+    "address": {
+        "addressLine1": "FENCHURCH ST",
+        "addressLine2": "168 Fenchurch Street",
+        "city": "London",
+        "isoTwoCountryCode": "GB",
+        "country": "United Kingdom",
+        "postalCode": "EC3M 6DE"
+    },
+    "phone": "020 7335 1590",
+    "departments": [
+        {
+            "id": "DPT_BABYWR",
+            "name": "Babywear"
+        },
+        {
+            "id": "DPT_BKRY",
+            "name": "Bakery"
+        },
+        {
+            "id": "DPT_BEAUT",
+            "name": "Beauty"
+        },
+        {
+            "id": "DPT_KIDW",
+            "name": "Kidswear"
+        },
+        {
+            "id": "DPT_LINSLP",
+            "name": "Lingerie & sleepwear"
+        },
+        {
+            "id": "DPT_LINSUR",
+            "name": "Lingerie - Post surgery"
+        },
+        {
+            "id": "DPT_MNBLHR",
+            "name": "Menswear - Blue Harbour"
+        },
+        {
+            "id": "DPT_MNCOLZ",
+            "name": "Menswear - Collezione"
+        },
+        {
+            "id": "DPT_MNFTW",
+            "name": "Menswear - Footwear"
+        },
+        {
+            "id": "DPT_MNMNSCOLL",
+            "name": "Menswear - M&S Collection"
+        },
+        {
+            "id": "DPT_MNCOAS",
+            "name": "Menswear - North Coast"
+        },
+        {
+            "id": "DPT_MNSUTS",
+            "name": "Menswear - Suits"
+        },
+        {
+            "id": "DPT_MNUNDR",
+            "name": "Menswear - Underwear"
+        },
+        {
+            "id": "DPT_WMLAUT",
+            "name": "Womenswear - Autograph"
+        }
+    ],
+    "services": [
+        {
+            "id": "SVC_BRAFIT",
+            "name": "Bra fitting"
+        },
+        {
+            "id": "SVC_BURCHG",
+            "name": "Bureau de Change"
+        },
+        {
+            "id": "SVC_CASHMC",
+            "name": "Cash machine"
+        },
+        {
+            "id": "SVC_CLHCD",
+            "name": "Clothing & Home collection desk"
+        },
+        {
+            "id": "SVC_CLHO",
+            "name": "Clothing & Home ordering"
+        },
+        {
+            "id": "SVC_FITRMM",
+            "name": "Fitting rooms(men)"
+        },
+        {
+            "id": "SVC_FITRMW",
+            "name": "Fitting rooms(women)"
+        },
+        {
+            "id": "SVC_FPOD",
+            "name": "Flower & Plant ordering"
+        },
+        {
+            "id": "SVC_FOOD",
+            "name": "Food ordering"
+        },
+        {
+            "id": "SVC_HOTFOOD",
+            "name": "Hot Food to Go"
+        },
+        {
+            "id": "SVC_REFUND",
+            "name": "Refund & exchange"
+        }
+    ],
+    "facilities": [],
+    "isChristmasOrderAccepted": true,
+    "isGmCollectionSupported": true,
+    "isFoodCollectionSupported": true
+}

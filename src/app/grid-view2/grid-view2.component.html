@@ -1,0 +1,102 @@
+<kendo-grid
+  #grid
+  [data]="gridView | async"
+  [loading]="loading"
+  [skip]="state.skip"
+  [pageSize]="state.take"
+  scrollable="virtual"
+  [rowHeight]="20"
+  [height]="800"
+  (pageChange)="pageChange($event)"
+  (dataStateChange)="onStateChange($event)"
+  (edit)="editHandler($event)"
+  (cancel)="cancelHandler($event)"
+  (save)="saveHandler($event)"
+  (remove)="removeHandler($event)"
+  (add)="addHandler($event)"
+  [navigable]="true"
+>
+  <kendo-grid-column field="id">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      Data Row #: {{ rowIndex + 1 }}
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column
+    field="OrderID"
+    [width]="80"
+    title="ID"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="ShipName"
+    title="Ship Name"
+    [width]="200"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="ShipCity"
+    title="Ship City"
+    [width]="100"
+  ></kendo-grid-column>
+  <!-- <kendo-grid-column
+    field="ShipCountry"
+    title="Ship Country"
+    [width]="100"
+  ></kendo-grid-column> -->
+  <kendo-grid-column field="ShipCountry" title="ShipCountry" width="150">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <!-- {{ category(dataItem.CategoryID)?.CategoryName }} -->
+      {{ dataItem.ShipCountry }}
+    </ng-template>
+    <ng-template
+      kendoGridEditTemplate
+      let-dataItem="dataItem"
+      let-column="column"
+      let-formGroup="formGroup"
+      let-isNew="isNew"
+    >
+      <kendo-dropdownlist
+        #ddl="popupAnchor"
+        popupAnchor
+        [defaultItem]="{ CategoryID: null, CategoryName: 'Test null item' }"
+        [data]="categories"
+        textField="CategoryName"
+        valueField="CategoryID"
+        [valuePrimitive]="true"
+        [formControl]="formGroup.get('CategoryID')"
+      >
+      </kendo-dropdownlist>
+      <kendo-popup
+        [anchor]="ddl.element"
+        *ngIf="
+          formGroup.get(column.field).invalid &&
+          !(isNew && formGroup.get(column.field).untouched)
+        "
+        popupClass="k-widget k-tooltip k-tooltip-validation k-invalid-msg"
+      >
+        <span class="k-icon k-i-warning"></span>
+        Category is required
+      </kendo-popup>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-command-column title="command" width="220">
+    <ng-template kendoGridCellTemplate let-isNew="isNew">
+      <button kendoGridEditCommand [primary]="true">Edit</button>
+      <button kendoGridRemoveCommand>Remove</button>
+      <button kendoGridSaveCommand [disabled]="formGroup?.invalid">
+        {{ isNew ? "Add" : "Update" }}
+      </button>
+      <button kendoGridCancelCommand>
+        {{ isNew ? "Discard changes" : "Cancel" }}
+      </button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>
+
+<!-- <kendo-grid [data]="gridData">
+  <kendo-grid-column field="ProductName">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      Data Row #: {{ rowIndex }} /
+      <strong>{{ dataItem.ProductName }}</strong>
+      ({{ dataItem.Discontinued ? "discontinued" : "active" }})
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid> -->

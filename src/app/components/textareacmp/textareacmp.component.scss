@@ -1,0 +1,10 @@
+div {
+  width: 200px;
+  min-height: 50px;
+  border: 1px solid lightgray;
+}
+div.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}

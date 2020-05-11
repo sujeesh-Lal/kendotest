@@ -1,0 +1,174 @@
+<div style="margin: 10px">
+  <div class="card">
+    <div class="card-block k-form">
+      <fieldset>
+        <legend>Binding types</legend>
+        <div class="k-form-field">
+          <span>Bind the data to:</span>
+          <input
+            [(ngModel)]="bindingType"
+            type="radio"
+            name="mode"
+            id="array"
+            value="array"
+            class="k-radio"
+            (change)="changeBindingType($event)"
+          />
+          <label class="k-radio-label" for="array">Array object</label>
+          <input
+            [(ngModel)]="bindingType"
+            type="radio"
+            name="mode"
+            id="gridDataResult"
+            value="gridDataResult"
+            class="k-radio"
+            (change)="changeBindingType($event)"
+          />
+          <label class="k-radio-label" for="gridDataResult"
+            >GridDataResult object</label
+          >
+          <input
+            [(ngModel)]="bindingType"
+            type="radio"
+            name="mode"
+            id="async"
+            value="async"
+            class="k-radio"
+            (change)="changeBindingType($event)"
+          />
+          <label class="k-radio-label" for="async">Asynchronous source</label>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<!-- <kendo-grid
+  [kendoGridBinding]="gridData"
+  [height]="450"
+  [loading]="loading"
+  [pageSize]="10"
+  [pageable]="true"
+  [sortable]="true"
+  [filterable]="true"
+  [groupable]="true"
+> -->
+
+<!-- <kendo-grid
+  [kendoGridBinding]="gridData"
+  [height]="450"
+  [loading]="loading"
+  [sortable]="true"
+  [filterable]="true"
+  [groupable]="true"
+>
+  <kendo-grid-column *ngFor="let col of columns" [field]="col.field">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      {{ dataItem[col.field] }}
+    </ng-template>
+  </kendo-grid-column> -->
+<!-- <kendo-grid-column field="Category.CategoryName" title="Category" width="250">
+  </kendo-grid-column> -->
+<!-- <kendo-grid-column
+    field="Category.CategoryName"
+    title="Discontinued"
+    width="120"
+  >
+    <ng-template kendoGridCellTemplate let-dataItem>
+      {{ dataItem.Category.CategoryName }}
+    </ng-template>
+  </kendo-grid-column> -->
+<!-- </kendo-grid> -->
+
+<br />
+
+<!-- <kendo-grid
+  [kendoGridBinding]="customerData"
+  [pageSize]="10"
+  [pageable]="true"
+  [sortable]="true"
+  [filterable]="true"
+  [groupable]="true"
+  [height]="510"
+>
+  <kendo-grid-column
+    *ngFor="let col of customerColumns"
+    [field]="col.field"
+  ></kendo-grid-column>
+</kendo-grid> -->
+
+<!-- <kendo-grid
+  [kendoGridGroupBinding]="vData"
+  [navigable]="true"
+  [groupable]="true"
+  [sortable]="true"
+  [pageSize]="80"
+  scrollable="virtual"
+  [rowHeight]="36"
+  [height]="450"
+>
+  <kendo-grid-column field="id" [width]="80" title="ID"></kendo-grid-column>
+  <kendo-grid-column
+    field="firstName"
+    title="First Name"
+    [width]="130"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="lastName"
+    title="Last Name"
+    [width]="130"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="city"
+    title="City"
+    [width]="130"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="title"
+    title="Title"
+    [width]="180"
+  ></kendo-grid-column>
+</kendo-grid> -->
+
+<kendo-grid
+  [data]="query | async"
+  [loading]="loading"
+  [skip]="state.skip"
+  [pageSize]="state.take"
+  scrollable="virtual"
+  [rowHeight]="36"
+  [height]="800"
+  (pageChange)="pageChange($event)"
+>
+  <kendo-grid-column field="OrderID" title="index" width="120">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      {{ dataItem.OrderID }}
+      hhh
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column
+    field="OrderID"
+    [width]="80"
+    title="ID"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="ShipName"
+    title="Ship Name"
+    [width]="200"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="ShipAddress"
+    title="Ship Address"
+    [width]="200"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="ShipCity"
+    title="Ship City"
+    [width]="100"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="ShipCountry"
+    title="Ship Country"
+    [width]="100"
+  ></kendo-grid-column>
+</kendo-grid>
